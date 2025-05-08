@@ -1,6 +1,5 @@
 from sklearn.linear_model import LinearRegression
 import numpy as np
-import matplotlib.pyplot as plt
 from sklearn.metrics import mean_squared_error
 
 # 载入数据
@@ -8,9 +7,7 @@ data = np.loadtxt(r'D:\vscode\machine_learning\机器学习\机器学习\回归\
 print(data)
 x_data=data[:,0]
 y_data=data[:,1]
-plt.scatter(x_data,y_data,c='b',marker='o')
-plt.xlabel('Area')
-plt.ylabel('Price')
+
 
 
 lr=0.0001
@@ -24,7 +21,7 @@ def loss(k,b,x_data,y_data):
         res=res+(j-(k*i+b))**2
     res=res/(2*len(x_data))
     return res
-fig, axes = plt.subplots(2, 5, figsize=(15, 5))
+
 
 def gd(b,k):
     num=0
@@ -34,15 +31,6 @@ def gd(b,k):
             k_cur=k-lr*(k*x_data[j]+b-y_data[j])/len(x_data)*x_data[j]
             b=b_cur
             k=k_cur
-        if i%5==0:
-            axes[int(num>=5),num%5].scatter(x_data,y_data,c='b',marker='o')
-            axes[int(num>=5),num%5].plot(x_data,k*x_data+b) 
-            if num==5:
-                axes[int(num>=5),num%5].set_xlabel('Area')
-                axes[int(num>=5),num%5].set_ylabel('Price')
-            num=num+1
-    fig.suptitle('Gradient Descent Process')
-    plt.show()
     return b,k
 my_b,my_k=gd(b,k)
 print(f"斜率为：{my_k} 截距为:{my_b}")
