@@ -1,10 +1,10 @@
 import streamlit as st
 from PIL import Image
 
-from sklearn.linear_model import LinearRegression
+# from sklearn.linear_model import LinearRegression
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.metrics import mean_squared_error
+# from sklearn.metrics import mean_squared_error
 
 # 载入数据
 data = np.loadtxt(r'D:\vscode\machine_learning\机器学习\机器学习\回归\线性回归以及非线性回归\house_price.txt',dtype=int,delimiter=',')     
