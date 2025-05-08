@@ -3,7 +3,6 @@ from PIL import Image
 
 import house as h
 
-
 st.write('机器学习作业展示：')
 
 if "step" not in st.session_state:
